@@ -1,0 +1,62 @@
+import { cn } from "@/utils/cn"
+import Button from "@/components/atoms/Button"
+import SearchBar from "@/components/molecules/SearchBar"
+import TaskCounter from "@/components/molecules/TaskCounter"
+import ApperIcon from "@/components/ApperIcon"
+
+const Header = ({ 
+  className,
+  onSearch,
+  onAddTask,
+  taskStats = { total: 0, active: 0, completed: 0, completionRate: 0 }
+}) => {
+  return (
+    <div className={cn("space-y-6", className)}>
+      {/* Title Section */}
+      <div className="text-center space-y-4">
+        <div className="flex items-center justify-center space-x-3">
+          <div className="h-12 w-12 bg-gradient-to-r from-primary to-secondary rounded-xl flex items-center justify-center shadow-lg">
+            <ApperIcon name="CheckSquare" size={24} className="text-white" />
+          </div>
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+            TaskFlow
+          </h1>
+        </div>
+        <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+          Capture, organize, and complete your tasks with minimal friction. 
+          <span className="font-semibold text-primary"> Stay productive, stay focused.</span>
+        </p>
+      </div>
+
+      {/* Stats */}
+      <TaskCounter
+        totalTasks={taskStats.total}
+        activeTasks={taskStats.active}
+        completedTasks={taskStats.completed}
+        completionRate={taskStats.completionRate}
+      />
+
+      {/* Action Bar */}
+      <div className="flex flex-col sm:flex-row gap-4">
+        <div className="flex-1">
+          <SearchBar
+            placeholder="Search tasks by title, description, or category..."
+            onSearch={onSearch}
+            debounceMs={300}
+          />
+        </div>
+        <Button
+          variant="primary"
+          size="lg"
+          onClick={onAddTask}
+          icon="Plus"
+          className="shrink-0 shadow-lg"
+        >
+          Add Task
+        </Button>
+      </div>
+    </div>
+  )
+}
+
+export default Header

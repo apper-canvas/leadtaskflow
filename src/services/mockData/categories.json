@@ -1,0 +1,50 @@
+[
+  {
+    "Id": 1,
+    "name": "Work",
+    "color": "#6366F1",
+    "icon": "Briefcase"
+  },
+  {
+    "Id": 2,
+    "name": "Personal",
+    "color": "#EC4899",
+    "icon": "User"
+  },
+  {
+    "Id": 3,
+    "name": "Shopping",
+    "color": "#F59E0B",
+    "icon": "ShoppingCart"
+  },
+  {
+    "Id": 4,
+    "name": "Health",
+    "color": "#10B981",
+    "icon": "Heart"
+  },
+  {
+    "Id": 5,
+    "name": "Finance",
+    "color": "#8B5CF6",
+    "icon": "CreditCard"
+  },
+  {
+    "Id": 6,
+    "name": "Home",
+    "color": "#3B82F6",
+    "icon": "Home"
+  },
+  {
+    "Id": 7,
+    "name": "Travel",
+    "color": "#EF4444",
+    "icon": "MapPin"
+  },
+  {
+    "Id": 8,
+    "name": "Education",
+    "color": "#14B8A6",
+    "icon": "BookOpen"
+  }
+]
