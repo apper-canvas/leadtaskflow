@@ -1,10 +1,11 @@
 import { RouterProvider } from "react-router-dom"
 import { ToastContainer } from "react-toastify"
 import { router } from "@/router"
+import { ThemeProvider } from "@/context/ThemeContext"
 
 function App() {
   return (
-    <>
+    <ThemeProvider>
       <RouterProvider router={router} />
       <ToastContainer
         position="top-right"
@@ -19,7 +20,7 @@ function App() {
         theme="colored"
         style={{ zIndex: 9999 }}
       />
-    </>
+    </ThemeProvider>
   )
 }
 

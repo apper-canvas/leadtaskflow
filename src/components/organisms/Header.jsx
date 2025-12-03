@@ -3,6 +3,7 @@ import Button from "@/components/atoms/Button"
 import SearchBar from "@/components/molecules/SearchBar"
 import TaskCounter from "@/components/molecules/TaskCounter"
 import ApperIcon from "@/components/ApperIcon"
+import { useTheme } from "@/context/ThemeContext"
 
 const Header = ({ 
   className,
@@ -10,8 +11,24 @@ const Header = ({
   onAddTask,
   taskStats = { total: 0, active: 0, completed: 0, completionRate: 0 }
 }) => {
+  const { theme, toggleTheme } = useTheme()
+
   return (
     <div className={cn("space-y-6", className)}>
+      {/* Header with Theme Toggle */}
+      <div className="flex justify-end mb-4">
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={toggleTheme}
+          icon={theme === 'light' ? "Moon" : "Sun"}
+          className="bg-white/80 dark:bg-slate-800/80 border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 shadow-sm backdrop-blur-sm transition-all duration-200"
+          aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
+        >
+          {theme === 'light' ? 'Dark' : 'Light'}
+        </Button>
+      </div>
+
       {/* Title Section */}
       <div className="text-center space-y-4">
         <div className="flex items-center justify-center space-x-3">
@@ -22,7 +39,7 @@ const Header = ({
             TaskFlow
           </h1>
         </div>
-        <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+        <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto transition-colors duration-200">
           Capture, organize, and complete your tasks with minimal friction. 
           <span className="font-semibold text-primary"> Stay productive, stay focused.</span>
         </p>
